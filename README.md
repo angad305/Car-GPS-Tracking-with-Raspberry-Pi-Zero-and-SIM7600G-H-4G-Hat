@@ -167,6 +167,11 @@ fi
 
 ### 📟 4. Enable OLED & Permissions
 
+Please upload DejaVuSans-Bold.ttg file to:
+```bash
+/usr/share/fonts/truetype/dejavu
+```
+
 Ensure I2C is enabled:
 
 ```bash
