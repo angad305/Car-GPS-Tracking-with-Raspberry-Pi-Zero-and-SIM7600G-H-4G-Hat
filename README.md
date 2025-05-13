@@ -278,6 +278,10 @@ DEVICE_ID = '1baleno' # Traccar device ID
 
 ---
 
+## 🧱 3D Printable Case
+This is a 3D printable enclosure for the SIM7600G-H 4G/LTE HAT and Raspberry Pi Zero. You need to manually cut or drill holes for the antennas. This model was the closest to my setup.
+[SIM7600G-H 4G/LTE Hat Pi Zero Case](https://www.thingiverse.com/thing:5184433)
+
 ## Images
 ![Tracker (1)](https://github.com/user-attachments/assets/3f474472-40b8-4727-9e9f-c9f6460f93b0)
 ![Tracker (5)](https://github.com/user-attachments/assets/97c52edb-0ec4-4881-b7fb-8698a3a9f5e4)
@@ -285,8 +289,7 @@ DEVICE_ID = '1baleno' # Traccar device ID
 ![Tracker (3)](https://github.com/user-attachments/assets/bc318f2f-8430-4f0c-b229-ce271bf43c0f)
 ![Tracker (2)](https://github.com/user-attachments/assets/78c421f0-56b1-4a45-87b3-becda3250c17)
 
-
-
+---
 
 ## 📜 License
 
