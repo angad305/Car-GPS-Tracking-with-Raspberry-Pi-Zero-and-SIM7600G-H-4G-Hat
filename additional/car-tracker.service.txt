@@ -1,0 +1,14 @@
+[Unit]
+Description=Car GPS Tracker Service
+After=network.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/bin/python3 /home/angad/car.py
+Restart=always
+User=angad
+Group=angad
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

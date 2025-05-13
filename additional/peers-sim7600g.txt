@@ -1,0 +1,20 @@
+/dev/ttyUSB3
+115200
+connect "/usr/sbin/chat -v -f /etc/chatscripts/sim7600g"
+noauth
+defaultroute
+usepeerdns
+noipdefault
+novj
+novjccomp
+noccp
+ipcp-accept-local
+ipcp-accept-remote
+local
+lock
+crtscts
+persist
+holdoff 10
+maxfail 0
+defaultroute
+replacedefaultroute

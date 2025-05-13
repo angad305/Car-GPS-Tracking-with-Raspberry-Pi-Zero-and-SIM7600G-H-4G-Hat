@@ -1,0 +1,47 @@
+#!/bin/bash
+
+echo "Starting LTE connection..."
+
+# Kill any existing pppd processes
+sudo killall pppd
+
+# Start the PPP connection
+sudo pon sim7600g
+
+# Wait for ppp0 interface to come up (timeout after 30 seconds)
+counter=0
+while [ $counter -lt 30 ] && ! ip link show ppp0 >/dev/null 2>&1; do
+    sleep 1
+    ((counter++))
+done
+
+if ip link show ppp0 >/dev/null 2>&1; then
+    echo "ppp0 interface is up"
+
+    # Wait for the interface to get an IP address (timeout after 30 seconds)
+    counter=0
+    while [ $counter -lt 30 ] && ! ip addr show ppp0 | grep -q "inet "; do
+        sleep 1
+        ((counter++))
+    done
+
+    if ip addr show ppp0 | grep -q "inet "; then
+        # Remove existing default route
+        sudo ip route del default
+
+        # Add new default route via ppp0
+        sudo ip route add default dev ppp0
+
+        echo "Default route added via ppp0"
+        ip addr show ppp0
+        ip route
+        echo "LTE connection established successfully!"
+    else
+        echo "ppp0 interface did not receive an IP address."
+        sudo poff sim7600g
+        exit 1
+    fi
+else
+    echo "Failed to establish LTE connection. ppp0 interface did not come up."
+    exit 1
+fi
